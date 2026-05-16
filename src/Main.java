@@ -21,8 +21,8 @@ public class Main {
         //task4.printResultTask4();
 
         /* HW3 (5-6) */
-        task5.printResultTask5();
-        //task6.printResultTask6();
+        //task5.printResultTask5();
+        task6.printResultTask6();
 
         /* HW2 (7-8) */
         /*Student[] students = new Student[5];
