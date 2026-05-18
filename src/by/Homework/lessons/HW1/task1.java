@@ -1,9 +1,9 @@
-package by.homewirk.lessons.task1;
+package by.Homework.lessons.HW1;
 
-public class HW1 {
+public class task1 {
     private static String strOut = "Ярмолюк. 22.04.2026 19:46";
 
-    public void printResult(){
+    public void printResultTask1() {
         System.out.print(strOut);
     }
 }

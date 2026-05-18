@@ -7,7 +7,7 @@ target/
 ### IntelliJ IDEA ###
 .idea/
 .gigaide/
-.out/
+out/
 *.iws
 *.iml
 *.ipr
