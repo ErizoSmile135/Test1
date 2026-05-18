@@ -22,10 +22,10 @@ public class Main {
 
         /* HW3 (5-6) */
         //task5.printResultTask5();
-        task6.printResultTask6();
+        //task6.printResultTask6();
 
         /* HW2 (7-8) */
-        /*Student[] students = new Student[5];
+        Student[] students = new Student[5];
 
         System.out.println("add students list:");
         System.out.println("******************");
@@ -46,8 +46,9 @@ public class Main {
         System.out.println();
         System.out.println("new students list (mark > 5):");
         for (Student st: students[0].getStudents(students, 5)) {
+            if (st == null) break;
             st.info();
             System.out.println("******************");
-        }*/
+        }
     }
 }

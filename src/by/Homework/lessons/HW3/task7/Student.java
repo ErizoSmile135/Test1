@@ -75,18 +75,16 @@ public class Student {
     }
 
     public Student[] getStudents(Student[] students, int mark) {
-        List<Student> studentsList = new ArrayList<>();
+        Student[] newArr = new Student[students.length];
+        int i = 0;
 
-        for (Student st: students){
-            if (st.avr > mark) studentsList.add(st);
+        for (Student st : students) {
+            if (st.avr > mark) {
+                newArr[i] = st;
+                i++;
+            }
         }
 
-        Student[] studentsArr = new Student[studentsList.size()];
-
-        for (Student st: studentsList) {
-            studentsArr[studentsList.indexOf(st)] = st;
-        }
-
-        return studentsArr;
+        return newArr;
     }
 }
