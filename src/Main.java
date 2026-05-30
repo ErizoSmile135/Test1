@@ -4,6 +4,7 @@ import by.Homework.lessons.HW2.task4;
 import by.Homework.lessons.HW3.task5.task5;
 import by.Homework.lessons.HW3.task6.task6;
 import by.Homework.lessons.HW3.task7.Student;
+import by.Homework.lessons.HW3.task8;
 
 public class Main {
     public static final task1 task1 = new task1();   //разобрать ключевые слова
@@ -11,6 +12,7 @@ public class Main {
     public static final task4 task4 = new task4();
     public static final task5 task5 = new task5();
     public static final task6 task6 = new task6();
+    public static final task8 task8 = new task8();
 
     public static void main(String[] args) {
         /* HW1 (1-2) */
@@ -25,7 +27,7 @@ public class Main {
         //task6.printResultTask6();
 
         /* HW2 (7-8) */
-        Student[] students = new Student[5];
+        /*Student[] students = new Student[5];
 
         System.out.println("add students list:");
         System.out.println("******************");
@@ -49,6 +51,9 @@ public class Main {
             if (st == null) break;
             st.info();
             System.out.println("******************");
-        }
+        }*/
+
+        task8.printResultTask8();
+
     }
 }
