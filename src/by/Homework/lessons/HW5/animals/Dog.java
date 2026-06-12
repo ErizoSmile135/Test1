@@ -1,5 +1,7 @@
 package by.Homework.lessons.HW5.animals;
 
+import java.util.Objects;
+
 public class Dog extends Animal {
     private String name;
     private int midWeight;
@@ -46,5 +48,15 @@ public class Dog extends Animal {
                 "color = " + this.color + "\n" +
                 "typeFood = " + this.typeFood + "\n" +
                 "maxLife = " + this.maxLife;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj.hashCode() == this.hashCode();
     }
 }

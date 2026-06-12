@@ -86,5 +86,11 @@ public class MainClass {
             animal.animalSound();
             animal.animalGame();
         }
+
+        System.out.println("\n сравним птицу трижды: ");
+        Bird birdCopyBird = new Bird("Blue", 14, "Plants", "Big Bird", 4000);
+        System.out.println(bird.equals(bird2));
+        System.out.println(bird.equals(birdCopyBird));
+        System.out.println(bird.equals(dog));
     }
 }

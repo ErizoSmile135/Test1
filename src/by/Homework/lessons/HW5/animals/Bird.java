@@ -1,5 +1,7 @@
 package by.Homework.lessons.HW5.animals;
 
+import java.util.Objects;
+
 public class Bird extends Animal {
     private String family;
     private int maxFly;
@@ -34,5 +36,23 @@ public class Bird extends Animal {
                 "color = " + this.color + "\n" +
                 "typeFood = " + this.typeFood + "\n" +
                 "maxLife = " + this.maxLife;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        //Вопрос к реализации такого рода:
+        /*      if (this.getClass() != obj.getClass()) return super.equals(obj);
+                else return obj.hashCode() == this.hashCode();
+         */
+        //Почему я так написал. У меня сомнения что стоит сравнивать хэши при том, что они создаются по разному принципу
+        //И я подумал сравнить сначала объекты, а к одному ли они классу относятся
+        //Ведь если сделать Objects.hash ч точно такой же строкой в другом классе, они будут одинаковыми?
+
+        return obj.hashCode() == this.hashCode();
     }
 }
