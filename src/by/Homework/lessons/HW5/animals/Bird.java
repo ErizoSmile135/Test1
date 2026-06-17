@@ -40,7 +40,14 @@ public class Bird extends Animal {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.toString());
+        String hashString = "Птица. Параметры:" +
+                " family = " + this.family +
+                " maxFly = " + this.maxFly +
+                " color = " + this.color +
+                " typeFood = " + this.typeFood +
+                " maxLife = " + this.maxLife;
+        return Objects.hash(hashString);
+        //return Objects.hash(this.toString());
     }
 
     @Override

@@ -52,7 +52,13 @@ public class Dog extends Animal {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.toString());
+        String hashString = this.name + " - собака. Параметры:" +
+                            " midWeight = " + this.midWeight +
+                            " race = " + this.race +
+                            " color = " + this.color +
+                            " typeFood = " + this.typeFood +
+                            " maxLife = " + this.maxLife;
+        return Objects.hash(hashString);
     }
 
     @Override
