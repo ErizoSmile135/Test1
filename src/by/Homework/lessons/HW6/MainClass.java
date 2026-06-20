@@ -1,6 +1,9 @@
 package by.Homework.lessons.HW6;
 
 import by.Homework.lessons.HW6.robots.*;
+import by.Homework.lessons.HW6.vehicles.Car;
+import by.Homework.lessons.HW6.vehicles.Garage;
+import by.Homework.lessons.HW6.vehicles.Motorcycle;
 
 public class MainClass {
     public static void main(String[] args) {
@@ -42,5 +45,15 @@ public class MainClass {
         for(RobotSapper robot: arr3){
             robot.createItem();
         }
+
+        //hw 12
+        System.out.println("///// hw 12 /////");
+        Garage<Car> carGarage = new Garage<>(new Car("Car1", 105));
+        Garage<Motorcycle> motorcycleGarage = new Garage<>(new Motorcycle("Motorcycle1", 96));
+
+        System.out.println("1. " + carGarage.getVehicle().getName() +
+                            ". Въезд " + (carGarage.isEntryPermitted() ? "разрешен": "запрещен"));
+        System.out.println("2. " + motorcycleGarage.getVehicle().getName() +
+                            ". Въезд " + (motorcycleGarage.isEntryPermitted() ? "разрешен": "запрещен"));
     }
 }
