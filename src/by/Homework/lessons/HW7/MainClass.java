@@ -1,0 +1,51 @@
+package by.Homework.lessons.HW7;
+
+import by.Homework.lessons.HW7.university.Faculty;
+import by.Homework.lessons.HW7.university.Group;
+import by.Homework.lessons.HW7.university.Student;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainClass {
+    public static void main(String[] args) {
+        Student student1 = new Student("Name1", "Lastname1", LocalDate.of(1999, 1, 1), 6.7);
+        Student student2 = new Student("Name2", "Lastname2", LocalDate.of(2001, 2, 2), 7.5);
+        Student student3 = new Student("Name3", "Lastname3", LocalDate.of(1997, 3, 3), 8.8);
+        Student student4 = new Student("Name4", "Lastname4", LocalDate.of(1998, 4, 4), 9.0);
+
+        Group group1 = new Group("GR1");
+        Group group2 = new Group("GR2");
+        Group group3 = new Group("GR3");
+
+        List<Student> studentsGr1 = new ArrayList<>();
+        studentsGr1.add(student1);
+        studentsGr1.add(student3);
+        List<Student> studentsGr2 = new ArrayList<>();
+        studentsGr2.add(student2);
+        List<Student> studentsGr3 = new ArrayList<>();
+        studentsGr3.add(student4);
+
+        group1.setStudents(studentsGr1);
+        group2.setStudents(studentsGr2);
+        group3.setStudents(studentsGr3);
+
+        Faculty faculty1 = new Faculty("Fac1");
+        Faculty faculty2 = new Faculty("Fac2");
+
+        List<Group> groupsFac1 = new ArrayList<>();
+        List<Group> groupsFac2 = new ArrayList<>();
+        groupsFac1.add(group1);
+        groupsFac2.add(group2);
+        groupsFac2.add(group3);
+
+        faculty1.setGroups(groupsFac1);
+        faculty2.setGroups(groupsFac2);
+
+        group1.getStudents().forEach(st -> System.out.println(st.getName()));
+        System.out.println("////////");
+        group1.removeStudentsByMark(7);
+        group1.getStudents().forEach(st -> System.out.println(st.getName()));
+    }
+}
