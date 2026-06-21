@@ -34,6 +34,16 @@ public class Group {
             if (student.getGpa() < (double) mark) removeStudents.add(student);
         }
 
-        removeStudents.forEach(st -> this.students.remove(st));     //учусь пользоваться
+        this.students.removeAll(removeStudents);
+        //removeStudents.forEach(st -> this.students.remove(st));     //учусь пользоваться
+    }
+
+    public double averageGroupScore(){
+        double avr = 0;
+        for(Student st: this.students){
+            avr += st.getGpa();
+        }
+        avr /= this.students.size();
+        return avr;
     }
 }
