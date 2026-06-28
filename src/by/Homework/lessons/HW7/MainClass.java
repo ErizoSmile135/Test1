@@ -1,17 +1,91 @@
 package by.Homework.lessons.HW7;
 
+import by.Homework.lessons.HW7.hospital.*;
 import by.Homework.lessons.HW7.university.Faculty;
 import by.Homework.lessons.HW7.university.Group;
 import by.Homework.lessons.HW7.university.Student;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class MainClass {
     public static void main(String[] args) {
-        Student student1 = new Student("Name1", "Lastname1", LocalDate.of(1999, 1, 1), 6.7);
+        Patient patient1 = new Patient(1, "fname1", "lname1", 22, Gender.MALE, "diag1");
+        Patient patient2 = new Patient(2, "fname2", "lname2", 23, Gender.FEMALE, "diag2");
+        Patient patient3 = new Patient(3, "fname3", "lname3", 24, Gender.MALE, "diag1");
+        Patient patient4 = new Patient(4, "fname4", "lname4", 25, Gender.MALE, "diag3");
+        Patient patient5 = new Patient(5, "fname5", "lname5", 26, Gender.FEMALE, "diag2");
+        Patient patient6 = new Patient(6, "fname6", "lname6", 27, Gender.FEMALE, "diag2");
+        Patient patient7 = new Patient(7, "fname7", "lname7", 28, Gender.MALE, "diag3");
+        Patient patientCopy1 = new Patient(1, "fname1", "lname1", 22, Gender.MALE, "diag1");
+
+        //Пометка... Set.of неизменяемый, но HashSet изменяемый. В этой обертке работает
+        //После 1.8 переписал
+        TreeSet<Patient> patientList1 = new TreeSet<>(Set.of(patient1, patient3));
+        TreeSet<Patient> patientList2 = new TreeSet<>(Set.of(patient2, patient5, patient6));
+        TreeSet<Patient> patientList3 = new TreeSet<>(Set.of(patient4, patient7));
+
+        Ward ward1 = new Ward(1, WardType.MALE_TYPE, patientList1);
+        Ward ward2 = new Ward(2, WardType.FEMALE_TYPE, patientList2);
+        Ward ward3 = new Ward(3, WardType.MALE_TYPE, patientList3);
+
+        Department department1 = new Department("Dep1", Set.of(ward1));
+        Department department2 = new Department("Dep2", Set.of(ward2, ward3));
+
+        //1.4
+        //неудачный
+        ward1.addPatient(patientCopy1);
+        //удачный (хотя этот пациент и есть в другой палате) (без учета диагноза)
+        //ward1.addPatient(patient7);
+        System.out.println("*************");
+
+        //1.5
+        int countMale = 0, countFemale = 0;
+        for (Ward ward: department2.getWardSet()){
+            for (Patient patient: ward.getPatientList()){
+                int temp = patient.getGender() == Gender.MALE ? countMale++ : countFemale++;
+            }
+        }
+        System.out.println("в " + department2.getDepartName() + " мужчин = " + countMale + ", женщин = " + countFemale);
+
+        //1.6
+        Patient patient8 = new Patient(8, "fname8", "lname8", 29, Gender.MALE, "diag2");
+        Patient patient9 = new Patient(9, "fname9", "lname9", 30, Gender.MALE, "diag1");
+
+        System.out.println("*************");
+        //в ward1 мужчины с диагнозом diag1
+        for (Ward ward: department1.getWardSet()){
+            System.out.println("ward " + ward.getNumber());
+
+            System.out.println("patient8");
+            ward.addPatientWithDiagnosis(patient8);
+            System.out.println("patient9");
+            ward.addPatientWithDiagnosis(patient9);
+        }
+
+        //1.7
+        System.out.println("*************");
+        ward1.printPatientsInfo();
+
+        //1.8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*Student student1 = new Student("Name1", "Lastname1", LocalDate.of(1999, 1, 1), 6.7);
         Student student2 = new Student("Name2", "Lastname2", LocalDate.of(2001, 2, 2), 7.5);
         Student student3 = new Student("Name3", "Lastname3", LocalDate.of(1997, 3, 3), 8.8);
         Student student4 = new Student("Name4", "Lastname4", LocalDate.of(1998, 4, 4), 9.0);
@@ -103,7 +177,7 @@ public class MainClass {
 
         //1.9-10
         //Наверное. Мы проходили компоратор, могу ли я им пользоваться вот так
-        List<Student> allStudents = new ArrayList<>();
+        /*List<Student> allStudents = new ArrayList<>();
 
         for (Group gr: faculty1.getGroups()){
             allStudents.addAll(gr.getStudents());
@@ -126,5 +200,7 @@ public class MainClass {
         for (Student st: allStudents){
             System.out.println(st.getName() + ", gpa = " + st.getGpa());
         }
+
+        */
     }
 }
