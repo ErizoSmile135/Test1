@@ -8,6 +8,9 @@ import by.Homework.lessons.HW9.task19.StringCaps;
 import by.Homework.lessons.HW9.task20.FileCreator;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -21,7 +24,7 @@ public class MainClass  {
         //task17();
         //task18();
         //task19();
-        task20();
+        //task20();
         task21();
     }
 
@@ -158,6 +161,35 @@ public class MainClass  {
     }
 
     static void task21(){
+        DateTimeFormatter format;
+        String date;
+        DateTimeFormatterBuilder link;      //чтобы быстро упасть
 
+        //1
+        format = DateTimeFormatter.ofPattern("d MMMM yyyy");
+        date = LocalDateTime.now().format(format);
+        System.out.println(date);
+
+        //2
+        format = DateTimeFormatter.ofPattern("d MMMM yyyy, hh:mm:ss a");
+        date = LocalDateTime.now().format(format);
+        System.out.println(date);
+
+        //3
+        String str1 = "2023-03-19 : 10:12:24 AM";
+        format = DateTimeFormatter.ofPattern("yyyy-MM-dd : hh:mm:ss a");
+        LocalDateTime dateTime1 = LocalDateTime.parse(str1, format);
+        System.out.println(dateTime1);
+
+        //4
+        String str2 = "пн 20.03.23 г. время: 15:07:28";
+        format = DateTimeFormatter.ofPattern("EE dd.MM.yy 'г. время:' HH:mm:ss");
+        LocalDateTime dateTime2 = LocalDateTime.parse(str2, format);
+        System.out.println(dateTime2);
+
+        //5
+        format = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy 'время:' hh.mm.ss a");
+        date = LocalDateTime.now().format(format);
+        System.out.println(date);
     }
 }
