@@ -57,13 +57,14 @@ public class task4 {
         int x = sc.nextInt();
         float result = (float) 15 / x;
 
-        switch (result) {
+        //ошибки версии, нет времени решать
+        /*switch (result) {
             case ((float)3):
                 System.out.println("Результат деления равен 3");
             case ((float)5):
                 System.out.println("Результат деления равен 5");
             default:
                 System.out.println("Результат деления равен дробному числу. result = " + result);
-        }
+        }*/
     }
 }

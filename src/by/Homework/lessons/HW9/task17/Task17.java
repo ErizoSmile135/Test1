@@ -30,7 +30,7 @@ public class Task17 {
     // 1.3 Чтение первого файла
     public void readRelativeFile() {
         try (FileReader fileReader = new FileReader(fileRel)) {
-            System.out.println(fileReader.readAllAsString());
+            //System.out.println(fileReader.readAllAsString());
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
@@ -39,7 +39,7 @@ public class Task17 {
     // 1.4 Чтение второго файла
     public void readAbsoluteFile() {
         try (FileReader fileReader = new FileReader(fileAbs)) {
-            System.out.println(fileReader.readAllAsString());
+            //System.out.println(fileReader.readAllAsString());
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
